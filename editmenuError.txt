@@ -1,0 +1,57 @@
+vagrant@vagrant:/vagrant$ python project3.py
+ * Running on http://0.0.0.0:5000/
+ * Restarting with reloader
+10.0.2.2 - - [14/Mar/2018 05:08:38] "GET / HTTP/1.1" 200 -
+10.0.2.2 - - [14/Mar/2018 05:08:38] "GET /static/styles.css HTTP/1.1" 200 -
+10.0.2.2 - - [14/Mar/2018 05:08:39] "GET /static/banner.jpeg HTTP/1.1" 304 -
+10.0.2.2 - - [14/Mar/2018 05:08:39] "GET /favicon.ico HTTP/1.1" 404 -
+10.0.2.2 - - [14/Mar/2018 05:08:51] "GET /login HTTP/1.1" 200 -
+done!
+10.0.2.2 - - [14/Mar/2018 05:08:55] "POST /gconnect?state=FM702J6QJW0YV4LWPDZX2FN5B40CX2D9 HTTP/1.1" 200 -
+10.0.2.2 - - [14/Mar/2018 05:08:59] "GET /restaurant/ HTTP/1.1" 200 -
+10.0.2.2 - - [14/Mar/2018 05:09:04] "GET /restaurant/new/ HTTP/1.1" 200 -
+10.0.2.2 - - [14/Mar/2018 05:09:10] "POST /restaurant/new/ HTTP/1.1" 302 -
+10.0.2.2 - - [14/Mar/2018 05:09:10] "GET /restaurant/ HTTP/1.1" 200 -
+10.0.2.2 - - [14/Mar/2018 05:09:14] "GET /restaurant/10/menu/ HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1701, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1689, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1687, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1360, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1358, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1344, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/vagrant/project3.py", line 376, in showMenu
+    return render_template('menu.html', items=items, restaurant=restaurant, creator=creator)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 125, in render_template
+    context, ctx.app)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 107, in _render
+    rv = template.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/vagrant/templates/menu.html", line 1, in top-level template code
+    {% extends "main.html" %}
+  File "/vagrant/templates/main.html", line 10, in top-level template code
+    {% block content %}
+  File "/vagrant/templates/menu.html", line 35, in block "content"
+    <a href="{{url_for('editRestaurant', restaurant_id = restaurant.id )}}">
+  File "/usr/local/lib/python2.7/dist-packages/flask/helpers.py", line 361, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/usr/local/lib/python2.7/dist-packages/flask/helpers.py", line 354, in url_for
+    force_external=external)
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/routing.py", line 1607, in build
+    raise BuildError(endpoint, values, method)
+BuildError: ('editRestaurant', {'restaurant_id': 10}, None)
+10.0.2.2 - - [14/Mar/2018 05:09:15] "GET /restaurant/10/menu/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+10.0.2.2 - - [14/Mar/2018 05:09:15] "GET /restaurant/10/menu/?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+10.0.2.2 - - [14/Mar/2018 05:09:15] "GET /restaurant/10/menu/?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+10.0.2.2 - - [14/Mar/2018 05:09:15] "GET /restaurant/10/menu/?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+10.0.2.2 - - [14/Mar/2018 05:09:15] "GET /restaurant/10/menu/?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+10.0.2.2 - - [14/Mar/2018 05:09:15] "GET /restaurant/10/menu/?__debugger__=yes&cmd=resource&f=source.png HTTP/1.1" 200 
